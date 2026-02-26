@@ -4,7 +4,8 @@ const { join } = require('path');
 module.exports = {
   output: {
     path: join(__dirname, '../../dist/apps/backend'),
-    clean: true,
+    // Keep other build outputs (like `dashboard`) placed under `dist/apps/backend/assets`.
+    clean: false,
     ...(process.env.NODE_ENV !== 'production' && {
       devtoolModuleFilenameTemplate: '[absolute-resource-path]',
     }),

@@ -10,7 +10,7 @@
       "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/dashboard",
+        "outputPath": "dist/apps/backend/assets/dashboard",
         "browser": "apps/dashboard/src/main.ts",
         "tsConfig": "apps/dashboard/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
@@ -71,7 +71,7 @@
       "executor": "@nx/web:file-server",
       "options": {
         "buildTarget": "dashboard:build",
-        "staticFilePath": "dist/dashboard/browser",
+        "staticFilePath": "dist/apps/backend/assets/dashboard/browser",
         "spa": true
       }
     }
