@@ -1,0 +1,159 @@
+<div class="min-h-screen bg-gray-50 dark:bg-gray-950">
+  <div class="mx-auto grid min-h-screen max-w-6xl grid-cols-1 items-center gap-10 px-6 py-12 lg:grid-cols-2">
+    <div class="order-2 lg:order-1">
+      <a
+        routerLink="/"
+        class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+      >
+        <span
+          class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-800"
+        >
+          <span class="text-gray-900 dark:text-gray-100">Nx</span>
+        </span>
+        Back to dashboard
+      </a>
+
+      <h1 class="mt-6 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+        Sign in to Dashboard
+      </h1>
+      <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+        Design-only screen for now. No auth logic wired yet.
+      </p>
+
+      <div class="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-200 dark:bg-gray-900/60 dark:ring-gray-800 sm:p-8">
+        <form class="space-y-5" (submit)="$event.preventDefault()">
+          <div>
+            <label for="email" class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-100">Email</label>
+            <input
+              id="email"
+              type="email"
+              autocomplete="email"
+              placeholder="you@company.com"
+              class="block w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950/40 dark:text-gray-100 dark:placeholder:text-gray-500 dark:focus:border-blue-400 dark:focus:ring-blue-900/30"
+            />
+          </div>
+
+          <div>
+            <div class="mb-2 flex items-center justify-between">
+              <label for="password" class="block text-sm font-medium text-gray-900 dark:text-gray-100">Password</label>
+              <button
+                type="button"
+                class="text-sm font-medium text-blue-700 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                aria-disabled="true"
+              >
+                Forgot password?
+              </button>
+            </div>
+            <input
+              id="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+              class="block w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:border-gray-700 dark:bg-gray-950/40 dark:text-gray-100 dark:placeholder:text-gray-500 dark:focus:border-blue-400 dark:focus:ring-blue-900/30"
+            />
+          </div>
+
+          <div class="flex items-center justify-between">
+            <label class="inline-flex cursor-pointer items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <input
+                type="checkbox"
+                class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-200"
+              />
+              Remember me
+            </label>
+
+            <div class="inline-flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+              <span class="h-2 w-2 rounded-full bg-gray-300 dark:bg-gray-600"></span>
+              SSO coming soon
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200"
+          >
+            Sign in
+          </button>
+
+          <div class="relative py-1">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-gray-200 dark:border-gray-700"></div>
+            </div>
+            <div class="relative flex justify-center">
+              <span class="bg-white px-3 text-xs text-gray-500 dark:bg-gray-900/60 dark:text-gray-400">or</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <button
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:bg-gray-900/40 dark:text-gray-100 dark:hover:bg-gray-900/60 dark:focus:ring-gray-800"
+              aria-disabled="true"
+            >
+              <span class="h-5 w-5 rounded bg-gray-100 ring-1 ring-gray-200"></span>
+              Google
+            </button>
+            <button
+              type="button"
+              class="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:bg-gray-900/40 dark:text-gray-100 dark:hover:bg-gray-900/60 dark:focus:ring-gray-800"
+              aria-disabled="true"
+            >
+              <span class="h-5 w-5 rounded bg-gray-100 ring-1 ring-gray-200"></span>
+              GitHub
+            </button>
+          </div>
+
+          <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+            New here?
+            <button
+              type="button"
+              class="font-semibold text-blue-700 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+              aria-disabled="true"
+            >
+              Create an account
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-[1px] shadow-sm">
+        <div class="rounded-3xl bg-white/5 p-8 backdrop-blur">
+          <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-xl bg-white/10 ring-1 ring-white/15"></div>
+            <div>
+              <div class="text-sm font-semibold text-white">AI Training Data Generator</div>
+              <div class="text-xs text-white/70">Dashboard UI</div>
+            </div>
+          </div>
+
+          <div class="mt-8 space-y-4">
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+              <div class="h-3 w-24 rounded bg-white/25"></div>
+              <div class="mt-3 h-8 w-full rounded bg-white/15"></div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+                <div class="h-3 w-16 rounded bg-white/25"></div>
+                <div class="mt-3 h-8 w-full rounded bg-white/15"></div>
+              </div>
+              <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/15">
+                <div class="h-3 w-20 rounded bg-white/25"></div>
+                <div class="mt-3 h-8 w-full rounded bg-white/15"></div>
+              </div>
+            </div>
+          </div>
+
+          <p class="mt-8 text-xs leading-relaxed text-white/70">
+            This panel is decorative. We’ll replace it later with real product content (status, recent jobs, usage, etc.).
+          </p>
+        </div>
+      </div>
+      <p class="mt-4 text-center text-xs text-gray-500 dark:text-gray-400">
+        Tip: you can visit <span class="font-mono">/login</span>
+      </p>
+    </div>
+  </div>
+</div>
+

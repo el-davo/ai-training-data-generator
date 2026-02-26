@@ -11,7 +11,9 @@ import { HelloResolver } from './graphql/hello.resolver';
   imports: [
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, 'assets', 'dashboard', 'browser'),
-      exclude: ['/api*', '/graphql*'],
+      // Use path-to-regexp v6-compatible patterns.
+      // This prevents ServeStatic from intercepting API/GraphQL routes.
+      exclude: ['/api/{*any}', '/graphql', '/graphql/{*any}'],
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

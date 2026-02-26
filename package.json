@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "nx": "nx"
+    "nx": "nx",
+    "build:dashboard": "nx build dashboard",
+    "serve:dashboard": "nx serve dashboard",
+    "build:backend": "nx build backend",
+    "serve:backend": "nx serve backend"
   },
   "private": true,
   "devDependencies": {
@@ -36,6 +40,7 @@
     "@types/node": "20.19.9",
     "@typescript-eslint/utils": "^8.40.0",
     "angular-eslint": "^21.0.1",
+    "autoprefixer": "^10.4.27",
     "esbuild": "^0.19.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
@@ -44,7 +49,9 @@
     "jest-util": "^30.0.2",
     "jsdom": "^27.1.0",
     "nx": "22.5.2",
+    "postcss": "^8.5.6",
     "prettier": "~3.6.2",
+    "tailwindcss": "^3.4.19",
     "ts-jest": "^29.4.0",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
@@ -69,6 +76,7 @@
     "@nestjs/graphql": "^13.2.4",
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/serve-static": "^5.0.4",
+    "flowbite": "^4.0.1",
     "graphql": "^16.13.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0"
