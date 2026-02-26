@@ -3,11 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "nx:compat": "NODE_OPTIONS=--experimental-require-module nx",
-    "serve:dashboard": "NODE_OPTIONS=--experimental-require-module nx serve dashboard",
-    "build:dashboard": "NODE_OPTIONS=--experimental-require-module nx build dashboard",
-    "serve:backend": "NODE_OPTIONS=--experimental-require-module nx serve backend",
-    "build:backend": "NODE_OPTIONS=--experimental-require-module nx build backend"
+    "nx": "nx"
   },
   "private": true,
   "devDependencies": {
