@@ -1,0 +1,32 @@
+FROM python:3.11-slim AS build
+
+WORKDIR /app
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends binutils \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY apps/worker/requirements.txt /app/apps/worker/requirements.txt
+COPY apps/worker/requirements-build.txt /app/apps/worker/requirements-build.txt
+
+RUN python -m pip install --no-cache-dir -U pip \
+  && python -m pip install --no-cache-dir \
+    -r /app/apps/worker/requirements.txt \
+    -r /app/apps/worker/requirements-build.txt
+
+COPY apps/worker/src /app/apps/worker/src
+
+WORKDIR /app/apps/worker
+
+# Produce a single-file Linux executable.
+RUN pyinstaller \
+  --clean \
+  --onefile \
+  --name worker \
+  --distpath /tmp/dist \
+  --workpath /tmp/build \
+  src/worker/__main__.py
+
+FROM scratch AS artifact
+COPY --from=build /tmp/dist/worker /worker
+

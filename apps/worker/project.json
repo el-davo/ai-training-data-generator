@@ -8,7 +8,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "apps/worker",
-        "command": "python3 -m venv .venv && .venv/bin/python -m pip install -U pip && .venv/bin/python -m pip install -r requirements.txt"
+        "command": "python3 -m venv .venv && .venv/bin/python -m pip install -U pip && .venv/bin/python -m pip install -r requirements.txt -r requirements-build.txt"
       }
     },
     "run": {
@@ -33,6 +33,21 @@
       "options": {
         "cwd": "apps/worker",
         "command": ".venv/bin/python -m compileall src"
+      }
+    },
+    "package-linux": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": ".",
+        "command": "bash -c 'unset npm_config_prefix; mkdir -p dist/apps/worker/linux/amd64 && docker buildx build --platform linux/amd64 -f apps/worker/Dockerfile.linux --target artifact --output type=local,dest=dist/apps/worker/linux/amd64 .'"
+      }
+    },
+    "package-macos": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["install"],
+      "options": {
+        "cwd": "apps/worker",
+        "command": "bash -lc 'unset npm_config_prefix; mkdir -p ../../dist/apps/worker/macos/arm64 && rm -rf /tmp/worker-pyinstaller-build && .venv/bin/pyinstaller --clean --onefile --name worker --distpath ../../dist/apps/worker/macos/arm64 --workpath /tmp/worker-pyinstaller-build src/worker/__main__.py'"
       }
     }
   },
