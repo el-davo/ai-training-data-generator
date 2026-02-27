@@ -5,6 +5,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
 import { HealthController } from './health/health.controller';
 import { HelloResolver } from './graphql/hello.resolver';
@@ -18,12 +19,14 @@ import { HelloResolver } from './graphql/hello.resolver';
       exclude: ['/api/{*any}', '/graphql', '/graphql/{*any}'],
     }),
     DatabaseModule,
+    AuthModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       // GraphQL endpoint is available at `/graphql`.
       path: 'graphql',
       autoSchemaFile: true,
       introspection: true,
+      context: ({ req }) => ({ req }),
     }),
   ],
   controllers: [AppController, HealthController],

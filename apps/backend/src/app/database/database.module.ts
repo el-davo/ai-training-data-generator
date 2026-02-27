@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSourceOptions } from 'typeorm';
 import { AppKvEntity } from './app.entity';
+import { UserEntity } from '../auth/user.entity';
 
 function toBool(value: unknown, defaultValue: boolean): boolean {
   if (value === undefined || value === null || value === '') return defaultValue;
@@ -45,7 +46,7 @@ function toInt(value: unknown, defaultValue: number): number {
           return {
             type: 'sqlite',
             database,
-            entities: [AppKvEntity],
+            entities: [AppKvEntity, UserEntity],
             synchronize,
             logging,
           };
@@ -74,7 +75,7 @@ function toInt(value: unknown, defaultValue: number): number {
             username,
             password,
             database,
-            entities: [AppKvEntity],
+            entities: [AppKvEntity, UserEntity],
             synchronize,
             logging,
           };
@@ -88,7 +89,7 @@ function toInt(value: unknown, defaultValue: number): number {
           username,
           password,
           database,
-          entities: [AppKvEntity],
+          entities: [AppKvEntity, UserEntity],
           synchronize,
           logging,
           ssl: sslEnabled ? { rejectUnauthorized } : false,
