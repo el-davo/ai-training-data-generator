@@ -72,13 +72,19 @@
     "@as-integrations/express5": "^1.1.2",
     "@nestjs/apollo": "^13.2.4",
     "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.0.0",
     "@nestjs/graphql": "^13.2.4",
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/serve-static": "^5.0.4",
+    "@nestjs/typeorm": "^11.0.0",
     "flowbite": "^4.0.1",
     "graphql": "^16.13.0",
+    "mysql2": "^3.18.2",
+    "pg": "^8.19.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "~7.8.0"
+    "rxjs": "~7.8.0",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.28"
   }
 }

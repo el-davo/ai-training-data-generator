@@ -5,6 +5,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseModule } from './database/database.module';
+import { HealthController } from './health/health.controller';
 import { HelloResolver } from './graphql/hello.resolver';
 
 @Module({
@@ -15,6 +17,7 @@ import { HelloResolver } from './graphql/hello.resolver';
       // This prevents ServeStatic from intercepting API/GraphQL routes.
       exclude: ['/api/{*any}', '/graphql', '/graphql/{*any}'],
     }),
+    DatabaseModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       // GraphQL endpoint is available at `/graphql`.
@@ -23,7 +26,7 @@ import { HelloResolver } from './graphql/hello.resolver';
       introspection: true,
     }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, HealthController],
   providers: [AppService, HelloResolver],
 })
 export class AppModule {}
